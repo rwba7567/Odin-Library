@@ -20,3 +20,14 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+
+#content{
+    box-sizing: border-box;
+    padding:0px 64px;
+    margin:32px;
+    border-radius:50px;
+
+    background-color: #CCD5AE;
+
+    flex:1 1 auto;
+}
