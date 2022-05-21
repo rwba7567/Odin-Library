@@ -8,7 +8,11 @@ body{
 
 #header{
     box-sizing: border-box;
-    padding:32px;
+    padding:0px 64px;
+    margin:32px;
+    border-radius:50px;
+    
+    background-color: #d4a373;
 
     flex:0 1 128px;
 
