@@ -59,3 +59,10 @@ addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
 fillTable();
+
+let btn = document.querySelector("button");
+
+btn.addEventListener("click",function(){
+    let overlay = document.querySelector("#addBook");
+    overlay.style.height = "100%";
+});
