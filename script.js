@@ -19,14 +19,43 @@ function Book(title, author, pages, read){
     }
 }
 
+
 function addBookToLibrary(title, author, pages, read){
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
 
+function fillTable(){
+    const table = document.querySelector("table");
+
+    for (x in myLibrary){
+        const row = document.createElement("tr");
+        const title = document.createElement("td");
+        const author = document.createElement("td");
+        const pages = document.createElement("td");
+        const read = document.createElement("td");
+
+        title.innerText = myLibrary[x].title;
+        author.innerText = myLibrary[x].author;
+        pages.innerText = myLibrary[x].pages;
+
+        if (myLibrary[x].read == true)
+            read.innerText = "Read";
+        else
+            read.innerText = "Not read";
+
+        row.appendChild(title);
+        row.appendChild(author);
+        row.appendChild(pages);
+        row.appendChild(read);
+
+        table.appendChild(row);
+    }  
+
+}
+
+//add sample books to array
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
-console.log(myLibrary[0].info());
-console.log(myLibrary[1].info());
-console.log(myLibrary[2].info());
+fillTable();
