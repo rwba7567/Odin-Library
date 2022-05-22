@@ -4,6 +4,8 @@ body{
     
     display: flex;
     flex-direction: column;
+    background-color: #00ABE1;
+    color: white;
 }
 
 #header{
@@ -12,7 +14,7 @@ body{
     margin:32px;
     border-radius:50px;
     
-    background-color: #d4a373;
+    background-color: #161F6D;
 
     flex:0 1 128px;
 
@@ -27,7 +29,7 @@ body{
     margin:32px;
     border-radius:50px;
 
-    background-color: #CCD5AE;
+    background-color: #161F6D;
 
     flex:1 1 auto;
     display: flex;
@@ -53,7 +55,7 @@ tr{
 }
 
 tr:not(:first-child):hover{
-    background-color: #E9EDC9;
+    background-color: #00ABE1;
 }
 
 
