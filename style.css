@@ -37,6 +37,9 @@ body{
 
     background-color: #00ABE1;
 
+    font-size: 24px;
+    font-weight: bold;
+
     flex:1 1 auto;
     display: flex;
     justify-content: center;
