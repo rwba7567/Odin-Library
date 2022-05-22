@@ -35,11 +35,25 @@ body{
     align-items: flex-start;
 }
 
-table,tr,th,td{
-    border: 1px solid black;
-}
-
 table{
     width:100%;
     border-collapse: collapse;
+    text-align: center;
 }
+
+th{
+    border-bottom: 2px solid black;
+}
+
+tr{
+    background-color: none;
+
+    box-sizing: border-box;
+    height: 32px;
+}
+
+tr:not(:first-child):hover{
+    background-color: #E9EDC9;
+}
+
+
