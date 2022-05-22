@@ -5,6 +5,9 @@ body{
     display: flex;
     flex-direction: column;
     background-color: #00ABE1;
+    
+
+    font-family: 'Delius Unicase', sans-serif;
     color: white;
 }
 
@@ -21,6 +24,9 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    font-size: 32px;
+    font-weight: bold;
 }
 
 #content{
