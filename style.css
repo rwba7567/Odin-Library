@@ -4,7 +4,7 @@ body{
     
     display: flex;
     flex-direction: column;
-    background-color: #00ABE1;
+    background-color: white;
     
 
     font-family: 'Delius Unicase', sans-serif;
@@ -17,7 +17,7 @@ body{
     margin:32px;
     border-radius:50px;
     
-    background-color: #161F6D;
+    background-color: #00ABE1;
 
     flex:0 1 128px;
 
@@ -35,7 +35,7 @@ body{
     margin:32px;
     border-radius:50px;
 
-    background-color: #161F6D;
+    background-color: #00ABE1;
 
     flex:1 1 auto;
     display: flex;
@@ -61,7 +61,7 @@ tr{
 }
 
 tr:not(:first-child):hover{
-    background-color: #00ABE1;
+    background-color: #161F6D;
 }
 
 
