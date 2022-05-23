@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Library</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="normalize.css">
         <script src="script.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -25,6 +26,30 @@
             </table>
             <button>Add Book</button>
         </div>
-        <div id="addBook"></div>
+        <div id="addBook">
+            <form action="">
+                <label for="title">Title</label><br>
+                <input type="text" name="title" id="title"><br>
+
+                <label for="author">Author</label><br>
+                <input type="text" name="author" id="author"><br>
+
+                <label for="pages">No. of pages</label><br>
+                <input type="number" name="pages" id="pages" min="0"><br>
+
+                <div id="checkboxLabel" >
+                    <label for="read" >Read</label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+
+                <input type="submit" value="submit">
+                
+                
+                
+            </form>
+        </div>
     </body>
 </html>
