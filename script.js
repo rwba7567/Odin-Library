@@ -1,7 +1,9 @@
 
 //Used as a key to store objects in session storage
-let sessionStorageCounter = 0;
 
+if (sessionStorage.getItem("counter") == null)
+    sessionStorage.setItem("counter", 0);
+let sessionStorageCounter = sessionStorage.getItem("counter");
 
 //Book object
 function Book(title, author, pages, read){
@@ -26,9 +28,11 @@ function addBookToLibrary(title, author, pages, read){
     const newBookJSON = JSON.stringify(newBook);
     sessionStorage.setItem(sessionStorageCounter, newBookJSON);
     sessionStorageCounter++;
+    sessionStorage.setItem("counter", sessionStorageCounter)
 }
 
 function fillTable(){
+    
     const table = document.querySelector("table");
     
     for (let key=0; key < sessionStorage.length; key++)
@@ -65,14 +69,13 @@ function fillTable(){
 
 }
 
-//clear sessionStorage of any data when starting up.
-if (sessionStorage.length == 1)
-{
-    //add sample books to array
+//add sample books to array
+if (sessionStorage.getItem("0") == null)
     addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+if (sessionStorage.getItem("1") == null)
     addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
+if (sessionStorage.getItem("2") == null)
     addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
-}
 
 fillTable();
 
