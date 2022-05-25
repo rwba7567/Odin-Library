@@ -27,7 +27,7 @@
             <button>Add Book</button>
         </div>
         <div id="addBook">
-            <form action="">
+            <form action="" onsubmit="return false">
                 <label for="title">Title</label><br>
                 <input type="text" name="title" id="title"><br>
 
@@ -40,7 +40,7 @@
                 <div id="checkboxLabel" >
                     <label for="read" >Read</label>
                     <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" name="read" id="read">
                         <span class="slider round"></span>
                       </label>
                 </div>

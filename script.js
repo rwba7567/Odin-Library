@@ -1,3 +1,5 @@
+
+
 //empty array of books
 let myLibrary = [];
 
@@ -60,9 +62,21 @@ addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
 fillTable();
 
+
+//open addBookform
 let btn = document.querySelector("button");
+let overlay = document.querySelector("#addBook");
 
 btn.addEventListener("click",function(){
-    let overlay = document.querySelector("#addBook");
     overlay.style.height = "100%";
 });
+
+
+//submit new data to array
+let submit = document.querySelector('[type=submit]');
+let form = document.querySelector("form");
+submit.addEventListener("click", 
+    function(){
+        addBookToLibrary(form.elements['title'].value, form.elements['author'].value, form.elements['pages'].value, form.elements['read'].checked);
+        overlay.style.height = "0";
+    });
