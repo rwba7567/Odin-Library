@@ -1,7 +1,6 @@
 
-
-//empty array of books
-let myLibrary = [];
+//Used as a key to store objects in session storage
+let sessionStorageCounter = 0;
 
 
 //Book object
@@ -24,24 +23,34 @@ function Book(title, author, pages, read){
 
 function addBookToLibrary(title, author, pages, read){
     const newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
+    const newBookJSON = JSON.stringify(newBook);
+    sessionStorage.setItem(sessionStorageCounter, newBookJSON);
+    sessionStorageCounter++;
 }
 
 function fillTable(){
     const table = document.querySelector("table");
+    
+    for (let key=0; key < sessionStorage.length; key++)
+    {
 
-    for (x in myLibrary){
+        if (isNaN(sessionStorage.key(key)) == true)
+        {
+            continue;
+        }
+
         const row = document.createElement("tr");
         const title = document.createElement("td");
         const author = document.createElement("td");
         const pages = document.createElement("td");
         const read = document.createElement("td");
+        const book = JSON.parse(sessionStorage.getItem(sessionStorage.key(key)));
 
-        title.innerText = myLibrary[x].title;
-        author.innerText = myLibrary[x].author;
-        pages.innerText = myLibrary[x].pages;
+        title.innerText = book.title;
+        author.innerText = book.author;
+        pages.innerText = book.pages;
 
-        if (myLibrary[x].read == true)
+        if (book.read == true)
             read.innerText = "Read";
         else
             read.innerText = "Not read";
@@ -56,10 +65,15 @@ function fillTable(){
 
 }
 
-//add sample books to array
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
-addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
+//clear sessionStorage of any data when starting up.
+if (sessionStorage.length == 1)
+{
+    //add sample books to array
+    addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
+    addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
+    addBookToLibrary("Moby Dick", "Herman Melville", 427, false);
+}
+
 fillTable();
 
 
