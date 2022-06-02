@@ -81,13 +81,20 @@ fillTable();
 
 
 //open addBookform
-let btn = document.querySelector("button");
+let openBtn = document.querySelector("button");
 let overlay = document.querySelector("#addBook");
 
-btn.addEventListener("click",function(){
+openBtn.addEventListener("click",function(){
     overlay.style.height = "100%";
 });
 
+
+//close addBookform
+let closeBtn = document.querySelector("#closeIcon");
+
+closeBtn.addEventListener("click",function(){
+    overlay.style.height = "0";
+});
 
 //submit new data to array
 let submit = document.querySelector('[type=submit]');
