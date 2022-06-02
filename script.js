@@ -101,6 +101,28 @@ let submit = document.querySelector('[type=submit]');
 let form = document.querySelector("form");
 submit.addEventListener("click", 
     function(){
-        addBookToLibrary(form.elements['title'].value, form.elements['author'].value, form.elements['pages'].value, form.elements['read'].checked);
-        overlay.style.height = "0";
+        if (form.elements['title'].value == "")
+            {
+                alert("Input book title!");
+                preventDefault()
+                return 0;
+            }
+        else if (form.elements['author'].value == "")
+            {
+                alert("Input book author!");
+                preventDefault()
+                return 0;
+            }
+        else if (form.elements['pages'].value == "")
+        {
+            alert("Input no. of pages!");
+            preventDefault()
+            return 0;
+        }
+        else
+        {
+            addBookToLibrary(form.elements['title'].value, form.elements['author'].value, form.elements['pages'].value, form.elements['read'].checked);
+            overlay.style.height = "0";
+            return 1;
+        }
     });
