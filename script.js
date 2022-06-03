@@ -139,6 +139,7 @@ let tableRows = document.querySelectorAll("tr:not(:first-child)");
 tableRows.forEach(row => {
     row.addEventListener("click",function(){
         let info = document.querySelector("#info form");
+        let readStatus = document.querySelector("#infoReadStatus")
 
         let bookId = row.id;
         bookId = bookId.replace("book","");
@@ -149,6 +150,10 @@ tableRows.forEach(row => {
         info.elements["infoTitle"].value = book.title;
         info.elements["infoAuthor"].value = book.author;
         info.elements["infoPages"].value = book.pages;
+        if (book.read == false)
+        {
+            readStatus.innerText = "Not Read";
+        }
         infoPage.style.height = "100%";
     })
 });
