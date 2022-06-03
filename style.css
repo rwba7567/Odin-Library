@@ -103,7 +103,7 @@ button:hover{
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-#closeIcon{
+.closeIcon{
   margin:32px;
   position: absolute;
   top: 0px;
@@ -154,6 +154,8 @@ input[type="submit"]{
     align-items: center;
     gap:16px;
 }
+
+
 
 /* The switch - the box around the slider */
 .switch {

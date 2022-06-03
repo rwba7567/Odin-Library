@@ -27,26 +27,46 @@
             <button>Add Book</button>
         </div>
         <div id="addBook" class="popUp">
-            <img src="images/closeIcon.png" alt="" id="closeIcon">
+            <img src="images/closeIcon.png" alt="" class="closeIcon">
             <form action="">
                 <label for="title">Title</label><br>
-                <input type="text" name="title" id="title"><br>
+                <input type="text" name="addTitle" id="title"><br>
 
                 <label for="author">Author</label><br>
-                <input type="text" name="author" id="author"><br>
+                <input type="text" name="addAuthor" id="author"><br>
 
                 <label for="pages">No. of pages</label><br>
-                <input type="number" name="pages" id="pages" min="0"><br>
+                <input type="number" name="addPages" id="pages" min="0"><br>
 
                 <div id="checkboxLabel" >
                     <label for="read" >Read</label>
                     <label class="switch">
-                        <input type="checkbox" name="read" id="read">
+                        <input type="checkbox" name="read" id="addRead">
                         <span class="slider round"></span>
                       </label>
                 </div>
 
                 <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div id="info" class="popUp">
+            <img src="images/closeIcon.png" alt="" class="closeIcon">
+            <form action="">
+                <label for="title">Title</label><br>
+                <input type="text" name="title" id="infoTitle" disabled=true value=""><br>
+
+                <label for="author">Author</label><br>
+                <input type="text" name="author" id="infoAuthor" disabled=true value=""><br>
+
+                <label for="pages">No. of pages</label><br>
+                <input type="number" name="pages" id="infoPages" min="0" disabled=true value=""><br>
+
+                <div id="infoRead">
+                    <span>Status:</span>
+                    <span id="infoReadStatus">Read</span>
+                </div>
+                
             </form>
         </div>
     </body>

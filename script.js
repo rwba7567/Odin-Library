@@ -63,6 +63,7 @@ function fillTable(){
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(read);
+        row.setAttribute("id","book"+sessionStorage.key(key));
 
         table.appendChild(row);
     }  
@@ -90,30 +91,34 @@ openBtn.addEventListener("click",function(){
 
 
 //close addBookform
-let closeBtn = document.querySelector("#closeIcon");
+let closeBtns = document.querySelectorAll(".closeIcon");
+let infoPage = document.querySelector("#info");
 
-closeBtn.addEventListener("click",function(){
-    overlay.style.height = "0";
+closeBtns.forEach(closeBtn => {
+    closeBtn.addEventListener("click",function(){
+        overlay.style.height = "0";
+        infoPage.style.height = "0";
+    })
 });
 
 //submit new data to array
 let submit = document.querySelector('[type=submit]');
-let form = document.querySelector("form");
+let form = document.querySelector("#addBook form");
 submit.addEventListener("click", 
     function(){
-        if (form.elements['title'].value == "")
+        if (form.elements['addTitle'].value == "")
             {
                 alert("Input book title!");
                 preventDefault()
                 return 0;
             }
-        else if (form.elements['author'].value == "")
+        else if (form.elements['addAuthor'].value == "")
             {
                 alert("Input book author!");
                 preventDefault()
                 return 0;
             }
-        else if (form.elements['pages'].value == "")
+        else if (form.elements['addPages'].value == "")
         {
             alert("Input no. of pages!");
             preventDefault()
@@ -121,8 +126,29 @@ submit.addEventListener("click",
         }
         else
         {
-            addBookToLibrary(form.elements['title'].value, form.elements['author'].value, form.elements['pages'].value, form.elements['read'].checked);
+            addBookToLibrary(form.elements['addTitle'].value, form.elements['addAuthor'].value, form.elements['addPages'].value, form.elements['addRead'].checked);
             overlay.style.height = "0";
             return 1;
         }
     });
+
+//Open information card
+let tableRows = document.querySelectorAll("tr:not(:first-child)");
+
+
+tableRows.forEach(row => {
+    row.addEventListener("click",function(){
+        let info = document.querySelector("#info form");
+
+        let bookId = row.id;
+        bookId = bookId.replace("book","");
+
+
+        const book = JSON.parse(sessionStorage.getItem(bookId));
+
+        info.elements["infoTitle"].value = book.title;
+        info.elements["infoAuthor"].value = book.author;
+        info.elements["infoPages"].value = book.pages;
+        infoPage.style.height = "100%";
+    })
+});
