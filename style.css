@@ -68,7 +68,24 @@ tr:not(:first-child):hover{
     background-color: #161F6D;
 }
 
-button{
+
+.smallBtn{
+  box-sizing: border-box;
+  width: 96px;
+  height: 48px;
+  border: 4px solid white;
+  border-radius: 4px;
+  margin:24px;
+
+  background-color: #00ABE1;
+  color: white;
+
+  font-size: 18px;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.mediumBtn{
     box-sizing: border-box;
     width: 128px;
     height: 64px;
@@ -155,6 +172,12 @@ input[type="submit"]{
     gap:16px;
 }
 
+#editBtn{
+  height:48px;
+  width:224px;
+
+  margin:32px 0px;
+}
 
 
 /* The switch - the box around the slider */
