@@ -155,7 +155,10 @@ tableRows.forEach(row => {
         if (book.read == false)
         {
             readStatus.innerText = "Not Read";
+            document.querySelector("#infoRead").checked = false;
         }
+
+
         infoPage.style.height = "100%";
     })
 });
