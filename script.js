@@ -90,7 +90,7 @@ openBtn.addEventListener("click",function(){
 });
 
 
-//close addBookform
+//close button script
 let closeBtns = document.querySelectorAll(".closeIcon");
 let infoPage = document.querySelector("#info");
 
@@ -99,6 +99,7 @@ closeBtns.forEach(closeBtn => {
         overlay.style.height = "0";
         infoPage.style.height = "0";
         readStatus.hidden = false;
+        cancelEdit();
     })
 });
 
@@ -137,11 +138,12 @@ submit.addEventListener("click",
 let tableRows = document.querySelectorAll("tr:not(:first-child)");
 let info = document.querySelector("#info form");
 let readStatus = document.querySelector("#infoReadStatus")
+let bookId = 0;
 
 
 tableRows.forEach(row => {
     row.addEventListener("click",function(){
-        let bookId = row.id;
+        bookId = row.id;
         bookId = bookId.replace("book","");
 
 
@@ -150,6 +152,7 @@ tableRows.forEach(row => {
         info.elements["infoTitle"].value = book.title;
         info.elements["infoAuthor"].value = book.author;
         info.elements["infoPages"].value = book.pages;
+
         if (book.read == false)
         {
             readStatus.innerText = "Not Read";
@@ -160,11 +163,11 @@ tableRows.forEach(row => {
 
 //Edit table information
 let editBtn = document.querySelector('#editBtn');
+let checkbox = document.querySelector(".checkboxLabel.info");
 
 editBtn.addEventListener("click",function(){
 
-    let checkbox = document.querySelector(".checkboxLabel.info");
-    let readStatus = document.querySelector("#infoReadStatus")
+    
 
     //enable all input boxes
     for (let count = 0; count < 3; count++)
@@ -185,4 +188,44 @@ editBtn.addEventListener("click",function(){
     document.querySelector(".info.flexRow").style.display = "flex";
 
     event.preventDefault();
+})
+
+//cancel changes made to table
+let cancelBtn = document.querySelector('#cancelBtn');
+
+function cancelEdit(){
+    const book = JSON.parse(sessionStorage.getItem(bookId));
+
+    info.elements["infoTitle"].value = book.title;
+    info.elements["infoAuthor"].value = book.author;
+    info.elements["infoPages"].value = book.pages;
+
+    if (book.read == false)
+    {
+        readStatus.innerText = "Not Read";
+    }
+
+    //disable all input boxes
+    for (let count = 0; count < 3; count++)
+    {
+        info.elements[count].disabled = true;
+    }
+
+    //hide checkbox
+    checkbox.hidden = true;
+
+    //show readStatus
+    document.querySelector("#infoRead").style.display = "block";
+
+    //show edit button
+    editBtn.style.display = "block";
+
+    //hide submit/cancel buttons
+    document.querySelector(".info.flexRow").style.display = "none";
+}
+
+cancelBtn.addEventListener("click", function(){
+    cancelEdit();
+    event.preventDefault();
+
 })
