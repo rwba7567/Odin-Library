@@ -164,7 +164,7 @@ input[type="submit"]{
     width: 224px;
 }
 
-#checkboxLabel{
+.checkboxLabel{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -179,6 +179,27 @@ input[type="submit"]{
   margin:32px 0px;
 }
 
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.info.flexRow{
+  display: none;
+
+  width: 224px;
+  height: 48px;
+  margin:16px 0px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info.flexRow button{
+  flex: 0 0 auto;
+
+  margin: 0;
+}
 
 /* The switch - the box around the slider */
 .switch {

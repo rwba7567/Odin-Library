@@ -98,6 +98,7 @@ closeBtns.forEach(closeBtn => {
     closeBtn.addEventListener("click",function(){
         overlay.style.height = "0";
         infoPage.style.height = "0";
+        readStatus.hidden = false;
     })
 });
 
@@ -134,13 +135,12 @@ submit.addEventListener("click",
 
 //Open information card
 let tableRows = document.querySelectorAll("tr:not(:first-child)");
+let info = document.querySelector("#info form");
+let readStatus = document.querySelector("#infoReadStatus")
 
 
 tableRows.forEach(row => {
     row.addEventListener("click",function(){
-        let info = document.querySelector("#info form");
-        let readStatus = document.querySelector("#infoReadStatus")
-
         let bookId = row.id;
         bookId = bookId.replace("book","");
 
@@ -157,3 +157,32 @@ tableRows.forEach(row => {
         infoPage.style.height = "100%";
     })
 });
+
+//Edit table information
+let editBtn = document.querySelector('#editBtn');
+
+editBtn.addEventListener("click",function(){
+
+    let checkbox = document.querySelector(".checkboxLabel.info");
+    let readStatus = document.querySelector("#infoReadStatus")
+
+    //enable all input boxes
+    for (let count = 0; count < 3; count++)
+    {
+        info.elements[count].disabled = false;
+    }
+
+    //Show checkbox
+    checkbox.hidden = false;
+
+    //hide readStatus
+    document.querySelector("#infoRead").style.display = "none";
+
+    //hide edit button
+    editBtn.style.display = "none";
+
+    //show submit/cancel buttons
+    document.querySelector(".info.flexRow").style.display = "flex";
+
+    event.preventDefault();
+})

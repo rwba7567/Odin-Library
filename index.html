@@ -38,7 +38,7 @@
                 <label for="pages">No. of pages</label><br>
                 <input type="number" name="addPages" id="pages" min="0"><br>
 
-                <div id="checkboxLabel" >
+                <div class="checkboxLabel" >
                     <label for="read" >Read</label>
                     <label class="switch">
                         <input type="checkbox" name="read" id="addRead">
@@ -62,12 +62,26 @@
                 <label for="pages">No. of pages</label><br>
                 <input type="number" name="pages" id="infoPages" min="0" disabled=true value=""><br>
 
+                <div class="checkboxLabel info" hidden=true>
+                    <label for="read" >Read</label>
+                    <label class="switch">
+                        <input type="checkbox" name="read" id="addRead">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+
                 <div id="infoRead">
                     <span>Status:</span>
                     <span id="infoReadStatus">Read</span>
                 </div>
-                
+
                 <button id="editBtn" class="smallBtn">Edit</button>
+
+                <div class="info flexRow">
+                    <button class="smallBtn">Submit</button>
+                    <button class="smallBtn">Cancel</button>
+                </div>
+
             </form>
         </div>
     </body>
