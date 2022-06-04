@@ -105,22 +105,22 @@ closeBtns.forEach(closeBtn => {
 
 //submit new data to array
 let submit = document.querySelector('[type=submit]');
-let form = document.querySelector("#addBook form");
+let appendForm = document.querySelector("#addBook form");
 submit.addEventListener("click", 
     function(){
-        if (form.elements['addTitle'].value == "")
+        if (appendForm.elements['addTitle'].value == "")
             {
                 alert("Input book title!");
                 preventDefault()
                 return 0;
             }
-        else if (form.elements['addAuthor'].value == "")
+        else if (appendForm.elements['addAuthor'].value == "")
             {
                 alert("Input book author!");
                 preventDefault()
                 return 0;
             }
-        else if (form.elements['addPages'].value == "")
+        else if (appendForm.elements['addPages'].value == "")
         {
             alert("Input no. of pages!");
             preventDefault()
@@ -128,8 +128,7 @@ submit.addEventListener("click",
         }
         else
         {
-            addBookToLibrary(form.elements['addTitle'].value, form.elements['addAuthor'].value, form.elements['addPages'].value, form.elements['addRead'].checked);
-            overlay.style.height = "0";
+            addBookToLibrary(appendForm.elements['addTitle'].value, appendForm.elements['addAuthor'].value, appendForm.elements['addPages'].value, appendForm.elements['addRead'].checked);
             return 1;
         }
     });
@@ -228,4 +227,40 @@ cancelBtn.addEventListener("click", function(){
     cancelEdit();
     event.preventDefault();
 
+})
+
+//submit btn for editing scripting
+let editSubmitBtn = document.querySelector("#editSubmitBtn");
+let editForm = document.querySelector("#info form");
+
+editSubmitBtn.addEventListener("click", function(){
+
+    if (editForm.elements['infoTitle'].value == "")
+        {
+            alert("Input book title!");
+            preventDefault()
+            return 0;
+        }
+    else if (editForm.elements['infoAuthor'].value == "")
+        {
+            alert("Input book author!");
+            preventDefault()
+            return 0;
+        }
+    else if (editForm.elements['infoPages'].value == "")
+        {
+            alert("Input no. of pages!");
+            preventDefault()
+            return 0;
+        }
+    else
+        {
+            const newBook = new Book(editForm.elements['infoTitle'].value, editForm.elements['infoAuthor'].value, editForm.elements['infoPages'].value, editForm.elements['infoRead'].checked);
+            const newBookJSON = JSON.stringify(newBook);
+            sessionStorage.setItem(+bookId, newBookJSON);
+            return 1;
+        }
+
+
+    
 })
