@@ -165,9 +165,6 @@ let editBtn = document.querySelector('#editBtn');
 let checkbox = document.querySelector(".checkboxLabel.info");
 
 editBtn.addEventListener("click",function(){
-
-    
-
     //enable all input boxes
     for (let count = 0; count < 3; count++)
     {
@@ -178,7 +175,7 @@ editBtn.addEventListener("click",function(){
     checkbox.hidden = false;
 
     //hide readStatus
-    document.querySelector("#infoRead").style.display = "none";
+    document.querySelector("#infoRead2").style.display = "none";
 
     //hide edit button
     editBtn.style.display = "none";
