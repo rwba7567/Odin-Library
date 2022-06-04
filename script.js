@@ -255,7 +255,7 @@ editSubmitBtn.addEventListener("click", function(){
         {
             const newBook = new Book(editForm.elements['infoTitle'].value, editForm.elements['infoAuthor'].value, editForm.elements['infoPages'].value, editForm.elements['infoRead'].checked);
             const newBookJSON = JSON.stringify(newBook);
-            sessionStorage.setItem(+bookId, newBookJSON);
+            sessionStorage.setItem(bookId, newBookJSON);
             return 1;
         }
 

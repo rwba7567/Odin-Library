@@ -54,14 +54,14 @@ table{
 }
 
 th{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
 
 tr{
     background-color: none;
 
     box-sizing: border-box;
-    height: 32px;
+    height: 48px;
 }
 
 tr:not(:first-child):hover{
