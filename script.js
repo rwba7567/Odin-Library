@@ -63,7 +63,7 @@ function fillTable(){
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(read);
-        row.setAttribute("id","book"+sessionStorage.key(key));
+        row.setAttribute("id",sessionStorage.key(key));
 
         table.appendChild(row);
     }  
@@ -143,8 +143,6 @@ let bookId = 0;
 tableRows.forEach(row => {
     row.addEventListener("click",function(){
         bookId = row.id;
-        bookId = bookId.replace("book","");
-
 
         const book = JSON.parse(sessionStorage.getItem(bookId));
 
